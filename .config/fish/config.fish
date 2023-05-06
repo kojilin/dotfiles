@@ -12,6 +12,7 @@ and not set -q TMUX
     exec tmux
 end
 
-set -gx EDITOR vim
+set -x EDITOR vim
+set -x KUBE_EDITOR vim
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
