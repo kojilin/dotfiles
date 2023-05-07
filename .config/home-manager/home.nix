@@ -82,6 +82,11 @@
     keyMode = "vi";
     terminal = "tmux-256color";
     mouse = true;
+    customPaneNavigationAndResize = true;
+    plugins = with pkgs; [
+      tmuxPlugins.resurrect
+      tmuxPlugins.continuum
+    ];
   };
 
   programs.fish = {
@@ -136,7 +141,7 @@
 
     interactiveShellInit = ''
       if not set -q TMUX
-         if tmux has-session -t home
+         if tmux has-session -t home 2>/dev/null
              exec tmux attach-session -t home
          else
              tmux new-session -s home
