@@ -1,9 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "kojilin";
-  home.homeDirectory = "/home/kojilin";
-
+  imports = [ ./home-base.nix ];
   home.stateVersion = "22.11";
 
   home.packages = [
